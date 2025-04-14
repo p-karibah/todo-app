@@ -1,5 +1,5 @@
 async function fetchTasks() {
-    const response = await fetch('http://localhost:3000/tasks');
+    const response = await fetch('https://todo-app-indol-psi.vercel.app/tasks');
     const tasks = await response.json();
     const taskList = document.getElementById('taskList');
     taskList.innerHTML = '';
@@ -18,7 +18,7 @@ async function addTask() {
     const taskInput = document.getElementById('taskInput');
     const title = taskInput.value.trim();
     if (title) {
-        await fetch('http://localhost:3000/tasks', {
+        await fetch('https://todo-app-indol-psi.vercel.app/tasks', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ title })
@@ -29,7 +29,7 @@ async function addTask() {
 }
 
 async function deleteTask(id) {
-    await fetch(`http://localhost:3000/tasks/${id}`, { method: 'DELETE' });
+    await fetch(`https://todo-app-indol-psi.vercel.app/${id}`, { method: 'DELETE' });
     fetchTasks();
 }
 
